@@ -18,11 +18,11 @@ def load_smplx_file(smplx_file, smplx_body_model_path):
         use_pca=False,
     )
     
-    num_frames = smplx_data["pose_body"].shape[0]
+    num_frames = smplx_data["poses"].shape[0]
     smplx_output = body_model(
         betas=torch.tensor(smplx_data["betas"]).float().view(1, -1), # (16,)
-        global_orient=torch.tensor(smplx_data["root_orient"]).float(), # (N, 3)
-        body_pose=torch.tensor(smplx_data["pose_body"]).float(), # (N, 63)
+        body_pose=torch.tensor(smplx_data["poses"][:, 3:66]).float(), # (N, 63)
+        global_orient=torch.tensor(smplx_data["poses"][:, :3]).float(), # (N, 3)
         transl=torch.tensor(smplx_data["trans"]).float(), # (N, 3)
         left_hand_pose=torch.zeros(num_frames, 45).float(),
         right_hand_pose=torch.zeros(num_frames, 45).float(),
@@ -115,9 +115,9 @@ def get_smplx_data_offline_fast(smplx_data, body_model, smplx_output, tgt_fps=30
         ...
     }
     """
-    src_fps = smplx_data["mocap_frame_rate"].item()
+    src_fps = smplx_data["mocap_framerate"].item()
     frame_skip = int(src_fps / tgt_fps)
-    num_frames = smplx_data["pose_body"].shape[0]
+    num_frames = smplx_data["poses"].shape[0]
     global_orient = smplx_output.global_orient.squeeze()
     full_body_pose = smplx_output.full_pose.reshape(num_frames, -1, 3)
     joints = smplx_output.joints.detach().numpy().squeeze()
