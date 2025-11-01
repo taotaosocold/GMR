@@ -61,7 +61,10 @@ def process_file(smplx_file_path, tgt_file_path, tgt_robot, SMPLX_FOLDER, tgt_fo
 
     try:
         smplx_data, body_model, smplx_output, actual_human_height = load_smplx_file(smplx_file_path, SMPLX_FOLDER)
-        mocap_frame_rate = smplx_data["mocap_framerate"]
+        if 'mocap_framerate' in smplx_data:
+            mocap_frame_rate = smplx_data["mocap_framerate"]
+        else:
+            mocap_frame_rate = smplx_data["mocap_frame_rate"]
         log_memory("After loading SMPL-X data")
     except Exception as e:
         print(f"Error loading {smplx_file_path}: {e}")
