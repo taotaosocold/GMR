@@ -3,7 +3,7 @@ import pathlib
 import time
 from general_motion_retargeting import GeneralMotionRetargeting as GMR
 from general_motion_retargeting import RobotMotionViewer
-from general_motion_retargeting.utils.lafan1 import load_lafan1_file
+from general_motion_retargeting.utils.lafan1 import load_bvh_file
 from rich import print
 from tqdm import tqdm
 import os
@@ -22,11 +22,25 @@ if __name__ == "__main__":
     )
     
     parser.add_argument(
+        "--format",
+        choices=["lafan1", "nokov"],
+        default="lafan1",
+    )
+    
+    parser.add_argument(
+        "--loop",
+        default=False,
+        action="store_true",
+        help="Loop the motion.",
+    )
+    
+    parser.add_argument(
         "--robot",
-        choices=["unitree_g1", "unitree_g1_with_hands", "booster_t1", "stanford_toddy", "fourier_n1", "engineai_pm01"],
+        choices=["unitree_g1", "unitree_g1_with_hands", "booster_t1", "stanford_toddy", "fourier_n1", "engineai_pm01", "pal_talos"],
         default="unitree_g1",
     )
-        
+    
+    
     parser.add_argument(
         "--record_video",
         action="store_true",
@@ -51,10 +65,14 @@ if __name__ == "__main__":
         help="Path to save the robot motion.",
     )
     
+    parser.add_argument(
+        "--motion_fps",
+        default=30,
+        type=int,
+    )
     
     args = parser.parse_args()
     
-
     if args.save_path is not None:
         save_dir = os.path.dirname(args.save_path)
         if save_dir:  # Only create directory if it's not empty
@@ -63,17 +81,17 @@ if __name__ == "__main__":
 
     
     # Load SMPLX trajectory
-    lafan1_data_frames, actual_human_height = load_lafan1_file(args.bvh_file)
+    lafan1_data_frames, actual_human_height = load_bvh_file(args.bvh_file, format=args.format)
     
     
     # Initialize the retargeting system
     retargeter = GMR(
-        src_human="bvh",
+        src_human=f"bvh_{args.format}",
         tgt_robot=args.robot,
         actual_human_height=actual_human_height,
     )
 
-    motion_fps = 30
+    motion_fps = args.motion_fps
     
     robot_motion_viewer = RobotMotionViewer(robot_type=args.robot,
                                             motion_fps=motion_fps,
@@ -96,8 +114,10 @@ if __name__ == "__main__":
     
     # Start the viewer
     i = 0
+    
 
-    while i < len(lafan1_data_frames):
+
+    while True:
         
         # FPS measurement
         fps_counter += 1
@@ -116,6 +136,7 @@ if __name__ == "__main__":
 
         # retarget
         qpos = retargeter.retarget(smplx_data)
+        
 
         # visualize
         robot_motion_viewer.step(
@@ -124,11 +145,18 @@ if __name__ == "__main__":
             dof_pos=qpos[7:],
             human_motion_data=retargeter.scaled_human_data,
             rate_limit=args.rate_limit,
+            follow_camera=True,
             # human_pos_offset=np.array([0.0, 0.0, 0.0])
         )
 
-        i += 1
-
+        if args.loop:
+            i = (i + 1) % len(lafan1_data_frames)
+        else:
+            i += 1
+            if i >= len(lafan1_data_frames):
+                break
+   
+        
         if args.save_path is not None:
             qpos_list.append(qpos)
     
