@@ -14,12 +14,15 @@ def load_bvh_file(bvh_file, format="lafan1"):
         ...
     }
     """
+    #解析bvh文件
     data = read_bvh(bvh_file)
+    # 前向运动学+坐标系变换
     global_data = utils.quat_fk(data.quats, data.pos, data.parents)
-
+    # bvh保准坐标系是Y-up即y轴朝上，但机器人是Z-up。所以这里做了一个坐标转换
     rotation_matrix = np.array([[1, 0, 0], [0, 0, -1], [0, 1, 0]])
+    # 然后将这个值变成四元数
     rotation_quat = R.from_matrix(rotation_matrix).as_quat(scalar_first=True)
-
+    # 后续每一帧所有朝向都和这个四元数做一个运算，变成z轴朝上
     frames = []
     for frame in range(data.pos.shape[0]):
         result = {}
@@ -27,7 +30,7 @@ def load_bvh_file(bvh_file, format="lafan1"):
             orientation = utils.quat_mul(rotation_quat, global_data[0][frame, i])
             position = global_data[1][frame, i] @ rotation_matrix.T / 100  # cm to m
             result[bone] = [position, orientation]
-            
+        # 其中对于不同的数据格式，会有一个处理
         if format == "lafan1":
             # Add modified foot pose
             result["LeftFootMod"] = [result["LeftFoot"][0], result["LeftToe"][1]]

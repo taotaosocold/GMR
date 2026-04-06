@@ -1,0 +1,424 @@
+<mujoco model="human_skeleton">
+  <compiler angle="degree" coordinate="local"/>
+  <option gravity="0 0 -9.81"/>
+  <worldbody>
+    <body name="Root" pos="0.000000 0.000000 0.000000">
+      <joint type="ball" name="Root_joint"/>
+      <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+      <geom type="capsule" size="0.015 0.4053841801929699" pos="-0.006304 -0.000614 0.435328"  quat="0.4999867697704854 0.0003526628811086165 -0.003620177256423024 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+      <body name="Hips" pos="0.000000 0.000000 0.000000">
+        <joint name="floating_base_joint" type="free" limited="false" actuatorfrclimited="false"/>
+        <geom type="sphere" size="0.0225" rgba="0.5 0.0 1.0 0.5"/>
+        <geom type="capsule" size="0.015 1e-05" pos="0.000168 0.021950 0.002495"  quat="0.3729820767743832 -0.3329833474778381 0.0025417921869138357 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+        <body name="Spine1" pos="0.000335 0.043901 0.004990">
+          <joint type="ball" name="Spine1_joint"/>
+          <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+          <geom type="capsule" size="0.015 0.0003380950000000005" pos="0.000000 0.030328 -0.000000"  quat="0.3535533905932738 -0.35355339059327373 0.0 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+          <body name="Spine2" pos="0.000000 0.060656 -0.000000">
+            <joint type="ball" name="Spine2_joint"/>
+            <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+            <geom type="capsule" size="0.015 0.0018459450000015668" pos="0.000000 0.031836 0.000000"  quat="0.35355344612066 -0.3535533350658788 0.0 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+            <body name="Chest" pos="0.000000 0.063672 0.000000">
+              <joint type="ball" name="Chest_joint"/>
+              <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+              <geom type="capsule" size="0.015 0.0793071826628882" pos="-0.001166 0.109105 -0.006380"  quat="0.3430792537645486 -0.3637052672266247 -0.0038864158256608594 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+              <body name="Neck1" pos="-0.002332 0.218209 -0.012760">
+                <joint type="ball" name="Neck1_joint"/>
+                <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                <geom type="capsule" size="0.015 1e-05" pos="0.000000 0.028113 -0.000000"  quat="0.35355335915255987 -0.3535534220339849 0.0 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                <body name="Neck2" pos="0.000000 0.056225 -0.000000">
+                  <joint type="ball" name="Neck2_joint"/>
+                  <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                  <geom type="capsule" size="0.015 1e-05" pos="0.000000 0.025986 -0.000000"  quat="0.3535532885506984 -0.3535534926358197 0.0 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                  <body name="Head" pos="0.000000 0.051971 -0.000000">
+                    <joint type="ball" name="Head_joint"/>
+                    <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                    <geom type="capsule" size="0.015 0.050270042127394575" pos="0.000039 0.080239 0.001823"  quat="0.357546212727924 -0.3495149156112949 0.00017184047125104278 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                    <body name="HeadEnd" pos="0.000079 0.160479 0.003646">
+                      <joint type="ball" name="HeadEnd_joint"/>
+                      <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                    </body>
+                    <geom type="capsule" size="0.015 1e-05" pos="0.000035 0.000640 0.016273"  quat="0.49990304412940484 -0.00983181370612237 0.0005309514124868608 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                    <body name="Jaw" pos="0.000069 0.001281 0.032545">
+                      <joint type="ball" name="Jaw_joint"/>
+                      <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                    </body>
+                    <geom type="capsule" size="0.015 0.021029722365282676" pos="0.015841 0.024296 0.041973"  quat="0.47732210931389063 -0.1247085992202639 0.0813103267774633 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                    <body name="LeftEye" pos="0.031682 0.048592 0.083947">
+                      <joint type="ball" name="LeftEye_joint"/>
+                      <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                    </body>
+                    <geom type="capsule" size="0.015 0.021073140842283188" pos="-0.016152 0.024345 0.041879"  quat="0.47698921725157456 -0.12493876096904874 -0.08289507001775874 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                    <body name="RightEye" pos="-0.032305 0.048689 0.083759">
+                      <joint type="ball" name="RightEye_joint"/>
+                      <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                    </body>
+                  </body>
+                </body>
+              </body>
+              <geom type="capsule" size="0.015 0.066512417880271" pos="0.008189 0.093277 0.023348"  quat="0.3940082322367559 -0.30664757340715293 0.026921713414480637 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+              <body name="LeftShoulder" pos="0.016378 0.186553 0.046696">
+                <joint type="ball" name="LeftShoulder_joint"/>
+                <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                <geom type="capsule" size="0.015 0.055020145000034416" pos="-0.000000 0.085010 -0.000000"  quat="0.3535533594011078 -0.35355342178529936 -3.11921672806198e-07 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                <body name="LeftArm" pos="-0.000000 0.170020 -0.000000">
+                  <joint type="ball" name="LeftArm_joint"/>
+                  <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                  <geom type="capsule" size="0.015 0.08304618500000188" pos="0.000000 0.113036 0.000000"  quat="0.35355339841274736 -0.35355338277379444 6.25557882679417e-08 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                  <body name="LeftForeArm" pos="0.000000 0.226072 0.000000">
+                    <joint type="ball" name="LeftForeArm_joint"/>
+                    <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                    <geom type="capsule" size="0.015 0.07912377000000011" pos="0.000000 0.109114 0.000000"  quat="0.35355339869384134 -0.353553382492706 0.0 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                    <body name="LeftHand" pos="0.000000 0.218228 0.000000">
+                      <joint type="ball" name="LeftHand_joint"/>
+                      <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                      <geom type="capsule" size="0.015 1e-05" pos="0.004033 0.009661 0.016027"  quat="0.4792212540129924 -0.13163204160848127 0.05495448411365577 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                      <body name="LeftHandThumb1" pos="0.008066 0.019321 0.032055">
+                        <joint type="ball" name="LeftHandThumb1_joint"/>
+                        <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                        <geom type="capsule" size="0.015 1e-05" pos="0.000000 0.023169 0.000000"  quat="0.3535533905932738 -0.35355339059319973 2.2889734577003085e-07 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                        <body name="LeftHandThumb2" pos="0.000000 0.046338 0.000000">
+                          <joint type="ball" name="LeftHandThumb2_joint"/>
+                          <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                          <geom type="capsule" size="0.015 1e-05" pos="0.000000 0.013484 0.000000"  quat="0.35355365279008494 -0.3535531283958793 5.243934278917277e-07 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                          <body name="LeftHandThumb3" pos="0.000000 0.026969 0.000000">
+                            <joint type="ball" name="LeftHandThumb3_joint"/>
+                            <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                            <geom type="capsule" size="0.015 1e-05" pos="0.000000 0.015523 -0.000000"  quat="0.3535529350620424 -0.3535538461239182 0.0 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                            <body name="LeftHandThumbEnd" pos="0.000000 0.031045 -0.000000">
+                              <joint type="ball" name="LeftHandThumbEnd_joint"/>
+                              <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                            </body>
+                          </body>
+                        </body>
+                      </body>
+                      <geom type="capsule" size="0.015 1e-05" pos="0.000498 0.014946 0.011280"  quat="0.447521830247635 -0.22286547055889092 0.007429231748377347 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                      <body name="LeftHandIndex1" pos="0.000996 0.029892 0.022560">
+                        <joint type="ball" name="LeftHandIndex1_joint"/>
+                        <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                        <geom type="capsule" size="0.015 0.0022948150000263287" pos="-0.000000 0.032285 0.000000"  quat="0.35355344534863836 -0.3535533358376293 -4.380428828074491e-07 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                        <body name="LeftHandIndex2" pos="-0.000000 0.064570 0.000000">
+                          <joint type="ball" name="LeftHandIndex2_joint"/>
+                          <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                          <geom type="capsule" size="0.015 1e-05" pos="0.000000 0.017473 -0.000000"  quat="0.3535532894240832 -0.35355349176243545 0.0 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                          <body name="LeftHandIndex3" pos="0.000000 0.034947 -0.000000">
+                            <joint type="ball" name="LeftHandIndex3_joint"/>
+                            <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                            <geom type="capsule" size="0.015 1e-05" pos="-0.000000 0.010751 0.000000"  quat="0.35355371946347575 -0.353553061722154 -6.57740098120009e-07 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                            <body name="LeftHandIndex4" pos="-0.000000 0.021501 0.000000">
+                              <joint type="ball" name="LeftHandIndex4_joint"/>
+                              <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                              <geom type="capsule" size="0.015 1e-05" pos="0.000000 0.012791 -0.000000"  quat="0.35355332149098595 -0.3535534596955481 0.0 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                              <body name="LeftHandIndexEnd" pos="0.000000 0.025582 -0.000000">
+                                <joint type="ball" name="LeftHandIndexEnd_joint"/>
+                                <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                              </body>
+                            </body>
+                          </body>
+                        </body>
+                      </body>
+                      <geom type="capsule" size="0.015 1e-05" pos="-0.002087 0.014694 0.004382"  quat="0.40049882843327994 -0.29635804926747183 -0.04210219778050777 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                      <body name="LeftHandMiddle1" pos="-0.004175 0.029387 0.008765">
+                        <joint type="ball" name="LeftHandMiddle1_joint"/>
+                        <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                        <geom type="capsule" size="0.015 0.001325670000025554" pos="-0.000000 0.031316 0.000000"  quat="0.3535533905932738 -0.3535533905929853 -4.5159933106075683e-07 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                        <body name="LeftHandMiddle2" pos="-0.000000 0.062631 0.000000">
+                          <joint type="ball" name="LeftHandMiddle2_joint"/>
+                          <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                          <geom type="capsule" size="0.015 1e-05" pos="-0.000000 0.020911 -0.000000"  quat="0.35355334832515006 -0.3535534328612307 -3.3814501011291065e-07 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                          <body name="LeftHandMiddle3" pos="-0.000000 0.041823 -0.000000">
+                            <joint type="ball" name="LeftHandMiddle3_joint"/>
+                            <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                            <geom type="capsule" size="0.015 1e-05" pos="0.000000 0.014242 -0.000000"  quat="0.35355326647027024 -0.3535535147162337 0.0 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                            <body name="LeftHandMiddle4" pos="0.000000 0.028484 -0.000000">
+                              <joint type="ball" name="LeftHandMiddle4_joint"/>
+                              <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                              <geom type="capsule" size="0.015 1e-05" pos="0.000000 0.011370 0.000000"  quat="0.35355354606638284 -0.3535532351195494 6.21892299757172e-07 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                              <body name="LeftHandMiddleEnd" pos="0.000000 0.022740 0.000000">
+                                <joint type="ball" name="LeftHandMiddleEnd_joint"/>
+                                <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                              </body>
+                            </body>
+                          </body>
+                        </body>
+                      </body>
+                      <geom type="capsule" size="0.015 1e-05" pos="0.000672 0.013218 -0.001976"  quat="0.32640152360252656 -0.37827548773385566 0.0192276043661949 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                      <body name="LeftHandRing1" pos="0.001344 0.026435 -0.003953">
+                        <joint type="ball" name="LeftHandRing1_joint"/>
+                        <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                        <geom type="capsule" size="0.015 1e-05" pos="0.000000 0.029870 0.000000"  quat="0.3535534497743581 -0.35355333141217954 0.0 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                        <body name="LeftHandRing2" pos="0.000000 0.059741 0.000000">
+                          <joint type="ball" name="LeftHandRing2_joint"/>
+                          <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                          <geom type="capsule" size="0.015 1e-05" pos="0.000000 0.020779 0.000000"  quat="0.3535533905932738 -0.35355339059327373 0.0 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                          <body name="LeftHandRing3" pos="0.000000 0.041559 0.000000">
+                            <joint type="ball" name="LeftHandRing3_joint"/>
+                            <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                            <geom type="capsule" size="0.015 1e-05" pos="-0.000000 0.012537 0.000000"  quat="0.3535533905932738 -0.3535533905914741 -1.1280678671776212e-06 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                            <body name="LeftHandRing4" pos="-0.000000 0.025073 0.000000">
+                              <joint type="ball" name="LeftHandRing4_joint"/>
+                              <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                              <geom type="capsule" size="0.015 1e-05" pos="-0.000000 0.009328 -0.000000"  quat="0.35355310633994474 -0.3535536748455617 -7.580091823010003e-07 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                              <body name="LeftHandRingEnd" pos="-0.000000 0.018657 -0.000000">
+                                <joint type="ball" name="LeftHandRingEnd_joint"/>
+                                <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                              </body>
+                            </body>
+                          </body>
+                        </body>
+                      </body>
+                      <geom type="capsule" size="0.015 1e-05" pos="0.002860 0.013000 -0.008327"  quat="0.2422967331319915 -0.42715588923006975 0.09396882147623681 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                      <body name="LeftHandPinky1" pos="0.005720 0.026000 -0.016653">
+                        <joint type="ball" name="LeftHandPinky1_joint"/>
+                        <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                        <geom type="capsule" size="0.015 1e-05" pos="-0.000000 0.026343 -0.000000"  quat="0.3535533570404956 -0.3535534241456411 -5.368444755064953e-07 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                        <body name="LeftHandPinky2" pos="-0.000000 0.052686 -0.000000">
+                          <joint type="ball" name="LeftHandPinky2_joint"/>
+                          <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                          <geom type="capsule" size="0.015 1e-05" pos="-0.000000 0.015569 0.000000"  quat="0.35355344736389704 -0.35355333382043536 -1.2489536102352146e-06 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                          <body name="LeftHandPinky3" pos="-0.000000 0.031139 0.000000">
+                            <joint type="ball" name="LeftHandPinky3_joint"/>
+                            <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                            <geom type="capsule" size="0.015 1e-05" pos="-0.000000 0.008761 0.000000"  quat="0.3535533905932738 -0.3535533905895886 -1.6142525448413696e-06 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                            <body name="LeftHandPinky4" pos="-0.000000 0.017522 0.000000">
+                              <joint type="ball" name="LeftHandPinky4_joint"/>
+                              <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                              <geom type="capsule" size="0.015 1e-05" pos="-0.000000 0.009813 -0.000000"  quat="0.3535532104535041 -0.3535535707322174 -7.205592623329282e-07 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                              <body name="LeftHandPinkyEnd" pos="-0.000000 0.019627 -0.000000">
+                                <joint type="ball" name="LeftHandPinkyEnd_joint"/>
+                                <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                              </body>
+                            </body>
+                          </body>
+                        </body>
+                      </body>
+                    </body>
+                  </body>
+                </body>
+              </body>
+              <geom type="capsule" size="0.015 0.06638667410424852" pos="-0.007756 0.092962 0.024216"  quat="0.3954841052590697 -0.30486935986931285 -0.025436114096074373 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+              <body name="RightShoulder" pos="-0.015512 0.185924 0.048431">
+                <joint type="ball" name="RightShoulder_joint"/>
+                <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                <geom type="capsule" size="0.015 0.05536481500001187" pos="0.000000 -0.085355 0.000000"  quat="0.3535533905932738 0.3535533905932246 1.863972474979309e-07 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                <body name="RightArm" pos="0.000000 -0.170710 0.000000">
+                  <joint type="ball" name="RightArm_joint"/>
+                  <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                  <geom type="capsule" size="0.015 0.08313769000000222" pos="-0.000000 -0.113128 0.000000"  quat="0.3535534218458677 0.3535533593406758 -3.125259247675577e-08 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                  <body name="RightForeArm" pos="-0.000000 -0.226255 0.000000">
+                    <joint type="ball" name="RightForeArm_joint"/>
+                    <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                    <geom type="capsule" size="0.015 0.07915896000000229" pos="-0.000000 -0.109149 -0.000000"  quat="0.35355335820144823 0.35355342298509485 -3.239182700275796e-08 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                    <body name="RightHand" pos="-0.000000 -0.218298 -0.000000">
+                      <joint type="ball" name="RightHand_joint"/>
+                      <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                      <geom type="capsule" size="0.015 1e-05" pos="-0.004034 -0.009659 -0.016029"  quat="0.14261911499032742 0.4422120754808002 -0.18468423955047925 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                      <body name="RightHandThumb1" pos="-0.008068 -0.019318 -0.032058">
+                        <joint type="ball" name="RightHandThumb1_joint"/>
+                        <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                        <geom type="capsule" size="0.015 1e-05" pos="0.000000 -0.023170 -0.000000"  quat="0.35355323800502086 0.35355354318116444 4.577648573746462e-07 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                        <body name="RightHandThumb2" pos="0.000000 -0.046341 -0.000000">
+                          <joint type="ball" name="RightHandThumb2_joint"/>
+                          <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                          <geom type="capsule" size="0.015 1e-05" pos="0.000000 -0.013484 -0.000000"  quat="0.3535528661918735 0.35355391499302125 7.866026838150783e-07 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                          <body name="RightHandThumb3" pos="0.000000 -0.026968 -0.000000">
+                            <joint type="ball" name="RightHandThumb3_joint"/>
+                            <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                            <geom type="capsule" size="0.015 1e-05" pos="-0.000000 -0.015525 -0.000000"  quat="0.3535531628659484 0.3535536183202874 -3.4159109806601567e-07 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                            <body name="RightHandThumbEnd" pos="-0.000000 -0.031051 -0.000000">
+                              <joint type="ball" name="RightHandThumbEnd_joint"/>
+                              <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                            </body>
+                          </body>
+                        </body>
+                      </body>
+                      <geom type="capsule" size="0.015 1e-05" pos="-0.000501 -0.014948 -0.011279"  quat="0.22302010348650242 0.4472554175889212 -0.014987490724918033 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                      <body name="RightHandIndex1" pos="-0.001002 -0.029896 -0.022557">
+                        <joint type="ball" name="RightHandIndex1_joint"/>
+                        <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                        <geom type="capsule" size="0.015 0.0022937050000034873" pos="0.000000 -0.032284 -0.000000"  quat="0.353553308457387 0.35355347272914145 0.0 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                        <body name="RightHandIndex2" pos="0.000000 -0.064567 -0.000000">
+                          <joint type="ball" name="RightHandIndex2_joint"/>
+                          <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                          <geom type="capsule" size="0.015 1e-05" pos="0.000000 -0.017469 0.000000"  quat="0.3535534411895131 0.35355333999702726 0.0 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                          <body name="RightHandIndex3" pos="0.000000 -0.034939 0.000000">
+                            <joint type="ball" name="RightHandIndex3_joint"/>
+                            <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                            <geom type="capsule" size="0.015 1e-05" pos="0.000000 -0.010748 -0.000000"  quat="0.3535533905932738 0.35355339059327373 0.0 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                            <body name="RightHandIndex4" pos="0.000000 -0.021495 -0.000000">
+                              <joint type="ball" name="RightHandIndex4_joint"/>
+                              <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                              <geom type="capsule" size="0.015 1e-05" pos="0.000000 -0.012791 0.000000"  quat="0.35355359790435126 0.3535531832816426 5.528293777682541e-07 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                              <body name="RightHandIndexEnd" pos="0.000000 -0.025581 0.000000">
+                                <joint type="ball" name="RightHandIndexEnd_joint"/>
+                                <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                              </body>
+                            </body>
+                          </body>
+                        </body>
+                      </body>
+                      <geom type="capsule" size="0.015 1e-05" pos="0.002088 -0.014694 -0.004382"  quat="0.2993451479159816 0.3965057507121433 0.05635310170131536 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                      <body name="RightHandMiddle1" pos="0.004177 -0.029388 -0.008763">
+                        <joint type="ball" name="RightHandMiddle1_joint"/>
+                        <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                        <geom type="capsule" size="0.015 0.0013275600000015983" pos="0.000000 -0.031318 -0.000000"  quat="0.3535533341467596 0.3535534470397789 0.0 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                        <body name="RightHandMiddle2" pos="0.000000 -0.062635 -0.000000">
+                          <joint type="ball" name="RightHandMiddle2_joint"/>
+                          <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                          <geom type="capsule" size="0.015 1e-05" pos="-0.000000 -0.020905 0.000000"  quat="0.3535534328736956 0.3535533483126851 -3.38243354784247e-07 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                          <body name="RightHandMiddle3" pos="-0.000000 -0.041811 0.000000">
+                            <joint type="ball" name="RightHandMiddle3_joint"/>
+                            <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                            <geom type="capsule" size="0.015 1e-05" pos="-0.000000 -0.014237 0.000000"  quat="0.35355345267771054 0.3535533285084772 -4.966754504907562e-07 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                            <body name="RightHandMiddle4" pos="-0.000000 -0.028474 0.000000">
+                              <joint type="ball" name="RightHandMiddle4_joint"/>
+                              <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                              <geom type="capsule" size="0.015 1e-05" pos="0.000000 -0.011372 -0.000000"  quat="0.35355331287050157 0.3535534683154822 6.217822461243098e-07 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                              <body name="RightHandMiddleEnd" pos="0.000000 -0.022745 -0.000000">
+                                <joint type="ball" name="RightHandMiddleEnd_joint"/>
+                                <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                              </body>
+                            </body>
+                          </body>
+                        </body>
+                      </body>
+                      <geom type="capsule" size="0.015 1e-05" pos="-0.000669 -0.013217 0.001976"  quat="0.37876394038126493 0.3259840028286829 -0.016501738291672 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                      <body name="RightHandRing1" pos="-0.001338 -0.026434 0.003953">
+                        <joint type="ball" name="RightHandRing1_joint"/>
+                        <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                        <geom type="capsule" size="0.015 1e-05" pos="-0.000000 -0.029872 -0.000000"  quat="0.35355330182515016 0.35355347936129583 -2.36715025907534e-07 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                        <body name="RightHandRing2" pos="-0.000000 -0.059743 -0.000000">
+                          <joint type="ball" name="RightHandRing2_joint"/>
+                          <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                          <geom type="capsule" size="0.015 1e-05" pos="-0.000000 -0.020775 0.000000"  quat="0.3535534331384267 0.3535533480479519 -3.403612030871945e-07 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                          <body name="RightHandRing3" pos="-0.000000 -0.041550 0.000000">
+                            <joint type="ball" name="RightHandRing3_joint"/>
+                            <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                            <geom type="capsule" size="0.015 1e-05" pos="-0.000000 -0.012531 0.000000"  quat="0.3535534611263707 0.3535533200597125 -5.642647192383854e-07 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                            <body name="RightHandRing4" pos="-0.000000 -0.025063 0.000000">
+                              <joint type="ball" name="RightHandRing4_joint"/>
+                              <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                              <geom type="capsule" size="0.015 1e-05" pos="-0.000000 -0.009332 0.000000"  quat="0.35355348531316033 0.3535532958725498 -7.577589915342034e-07 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                              <body name="RightHandRingEnd" pos="-0.000000 -0.018663 0.000000">
+                                <joint type="ball" name="RightHandRingEnd_joint"/>
+                                <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                              </body>
+                            </body>
+                          </body>
+                        </body>
+                      </body>
+                      <geom type="capsule" size="0.015 1e-05" pos="-0.002860 -0.012998 0.008326"  quat="0.4373736450218596 0.23662983751429417 -0.052063563441730305 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                      <body name="RightHandPinky1" pos="-0.005720 -0.025996 0.016652">
+                        <joint type="ball" name="RightHandPinky1_joint"/>
+                        <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                        <geom type="capsule" size="0.015 1e-05" pos="0.000000 -0.026343 -0.000000"  quat="0.3535533905932738 0.35355339059327373 0.0 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                        <body name="RightHandPinky2" pos="0.000000 -0.052686 -0.000000">
+                          <joint type="ball" name="RightHandPinky2_joint"/>
+                          <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                          <geom type="capsule" size="0.015 1e-05" pos="0.000000 -0.015566 0.000000"  quat="0.3535534473780116 0.3535533338085268 0.0 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                          <body name="RightHandPinky3" pos="0.000000 -0.031131 0.000000">
+                            <joint type="ball" name="RightHandPinky3_joint"/>
+                            <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                            <geom type="capsule" size="0.015 1e-05" pos="-0.000000 -0.008760 0.000000"  quat="0.3535536932945198 0.35355308789084705 -8.07202977391658e-07 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                            <body name="RightHandPinky4" pos="-0.000000 -0.017520 0.000000">
+                              <joint type="ball" name="RightHandPinky4_joint"/>
+                              <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                              <geom type="capsule" size="0.015 1e-05" pos="0.000000 -0.009817 -0.000000"  quat="0.35355321051369387 0.3535535706720282 7.20318503007721e-07 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                              <body name="RightHandPinkyEnd" pos="0.000000 -0.019633 -0.000000">
+                                <joint type="ball" name="RightHandPinkyEnd_joint"/>
+                                <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                              </body>
+                            </body>
+                          </body>
+                        </body>
+                      </body>
+                    </body>
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+        <geom type="capsule" size="0.015 0.03188530429929113" pos="0.046190 -0.039568 0.011373"  quat="0.38467569725452405 0.20780091121779537 0.24257656366351568 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+        <body name="LeftLeg" pos="0.092381 -0.079137 0.022746">
+          <joint type="ball" name="LeftLeg_joint"/>
+          <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+          <geom type="capsule" size="0.015 0.15744799000000087" pos="0.000000 0.187438 0.000000"  quat="0.35355340474008773 -0.35355337644645873 1.8862418256110124e-08 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+          <body name="LeftShin" pos="0.000000 0.374876 0.000000">
+            <joint type="ball" name="LeftShin_joint"/>
+            <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+            <geom type="capsule" size="0.015 0.15906161000000035" pos="-0.000000 0.189052 0.000000"  quat="0.35355339994398455 -0.35355338124256264 -9.350710666853423e-09 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+            <body name="LeftFoot" pos="-0.000000 0.378103 0.000000">
+              <joint type="ball" name="LeftFoot_joint"/>
+              <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+              <geom type="capsule" size="0.015 0.04210079500000017" pos="0.000000 0.072091 0.000000"  quat="0.35355339059327373 -0.35355339059327295 2.4521396288754546e-08 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+              <body name="LeftToeBase" pos="0.000000 0.144182 0.000000">
+                <joint type="ball" name="LeftToeBase_joint"/>
+                <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                <geom type="capsule" size="0.015 0.005190093058729254" pos="0.000000 0.035175 -0.000614"  quat="0.3504546437210051 -0.3566252132062222 0.0 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                <body name="LeftToeEnd" pos="0.000000 0.070349 -0.001228">
+                  <joint type="ball" name="LeftToeEnd_joint"/>
+                  <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+        <geom type="capsule" size="0.015 0.03184556269626808" pos="-0.046047 -0.039304 0.012590"  quat="0.3878795752231185 0.2048395702629292 -0.2399795524190169 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+        <body name="RightLeg" pos="-0.092094 -0.078608 0.025180">
+          <joint type="ball" name="RightLeg_joint"/>
+          <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+          <geom type="capsule" size="0.015 0.15742749000000014" pos="0.000000 -0.187417 0.000000"  quat="0.35355339530939434 0.35355338587715307 9.432240979141093e-09 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+          <body name="RightShin" pos="0.000000 -0.374835 0.000000">
+            <joint type="ball" name="RightShin_joint"/>
+            <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+            <geom type="capsule" size="0.015 0.15906033000000025" pos="-0.000000 -0.189050 -0.000000"  quat="0.35355339059327373 0.3535533905932733 -1.8701548449731527e-08 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+            <body name="RightFoot" pos="-0.000000 -0.378101 -0.000000">
+              <joint type="ball" name="RightFoot_joint"/>
+              <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+              <geom type="capsule" size="0.015 0.04208877500000089" pos="0.000000 -0.072079 0.000000"  quat="0.35355340285601633 0.3535533783305274 4.9050969349926854e-08 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+              <body name="RightToeBase" pos="0.000000 -0.144158 0.000000">
+                <joint type="ball" name="RightToeBase_joint"/>
+                <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                <geom type="capsule" size="0.015 0.005199594491481784" pos="-0.000000 -0.035184 0.000614"  quat="0.35662520911118906 0.3504546478881265 -9.960558980126372e-08 0.0"  rgba="1.0 0.5 1.0 0.5"/>
+                <body name="RightToeEnd" pos="-0.000000 -0.070368 0.001228">
+                  <joint type="ball" name="RightToeEnd_joint"/>
+                  <geom type="sphere" size="0.0225" rgba="0.8 0.8 0.8 0.5"/>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+        
+    <!-- setup scene -->
+  <statistic center="1.0 0.7 1.0" extent="0.8"/>
+    <visual>
+        <headlight diffuse="0.6 0.6 0.6" ambient="0.1 0.1 0.1" specular="0.9 0.9 0.9"/>
+        <rgba haze="0.15 0.25 0.35 1"/>
+        <global azimuth="-140" elevation="-20" offwidth="2080" offheight="1170"/>
+    </visual>
+    <asset>
+        <texture type="skybox" builtin="gradient" rgb1="1 1 1" rgb2="1 1 1" width="800" height="800"/>
+    <texture type="2d" name="groundplane" builtin="checker" mark="edge" rgb1="1 1 1" rgb2="1 1 1" markrgb="0 0 0"
+      width="300" height="300"/>
+    <material name="groundplane" texture="groundplane" texuniform="true" texrepeat="5 5" reflectance="0"/>
+        <texture type="skybox" builtin="gradient" rgb1=".4 .5 .6" rgb2="0 0 0" width="100" height="100"/>
+        <texture builtin="flat" height="1278" mark="cross" markrgb="1 1 1" name="texgeom" random="0.01" rgb1="0.8 0.6 0.4" rgb2="0.8 0.6 0.4" type="cube" width="127"/>
+        <texture name="texplane" builtin="checker" height="512" width="512" rgb1=".2 .3 .4" rgb2=".1 .15 .2" type="2d" />
+        <material name="MatPlane" reflectance="0.5" shininess="0.01" specular="0.1" texrepeat="1 1" texture="texplane" texuniform="true" />
+        <material name="geom" texture="texgeom" texuniform="true"/>
+    </asset>
+    <worldbody>
+        <geom name="floor" size="0 0 0.01" type="plane" material="groundplane" contype="1" conaffinity="0" priority="1"
+      friction="0.6" condim="3"/>
+      <!-- <light diffuse=".5 .5 .5" pos="0 0 5" dir="0 0 -1" castshadow="true"/> -->
+
+          <light diffuse=".5 .5 .5" pos="-3 -3 5" dir="3 3 -5" castshadow="true"/>
+
+
+    </worldbody>
+
+</mujoco>

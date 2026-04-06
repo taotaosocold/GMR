@@ -81,10 +81,12 @@ if __name__ == "__main__":
 
     
     # Load SMPLX trajectory
+    # 解析bvh的SMPLX文件，得到每个节点的全局位置和全局旋转以及人体的真实审稿
     lafan1_data_frames, actual_human_height = load_bvh_file(args.bvh_file, format=args.format)
     
     
     # Initialize the retargeting system
+    # GMR初始化
     retargeter = GMR(
         src_human=f"bvh_{args.format}",
         tgt_robot=args.robot,

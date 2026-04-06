@@ -1,0 +1,392 @@
+{
+    "Root": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "Hips": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "Spine1": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "Spine2": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "Chest": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "Neck1": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "Neck2": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "Head": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "HeadEnd": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "Jaw": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "LeftEye": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "RightEye": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "LeftShoulder": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "LeftArm": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "LeftForeArm": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "LeftHand": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "LeftHandThumb1": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "LeftHandThumb2": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "LeftHandThumb3": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "LeftHandThumbEnd": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "LeftHandIndex1": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "LeftHandIndex2": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "LeftHandIndex3": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "LeftHandIndex4": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "LeftHandIndexEnd": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "LeftHandMiddle1": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "LeftHandMiddle2": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "LeftHandMiddle3": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "LeftHandMiddle4": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "LeftHandMiddleEnd": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "LeftHandRing1": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "LeftHandRing2": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "LeftHandRing3": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "LeftHandRing4": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "LeftHandRingEnd": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "LeftHandPinky1": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "LeftHandPinky2": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "LeftHandPinky3": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "LeftHandPinky4": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "LeftHandPinkyEnd": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "RightShoulder": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "RightArm": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "RightForeArm": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "RightHand": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "RightHandThumb1": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "RightHandThumb2": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "RightHandThumb3": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "RightHandThumbEnd": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "RightHandIndex1": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "RightHandIndex2": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "RightHandIndex3": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "RightHandIndex4": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "RightHandIndexEnd": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "RightHandMiddle1": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "RightHandMiddle2": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "RightHandMiddle3": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "RightHandMiddle4": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "RightHandMiddleEnd": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "RightHandRing1": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "RightHandRing2": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "RightHandRing3": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "RightHandRing4": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "RightHandRingEnd": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "RightHandPinky1": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "RightHandPinky2": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "RightHandPinky3": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "RightHandPinky4": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "RightHandPinkyEnd": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "LeftLeg": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "LeftShin": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "LeftFoot": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "LeftToeBase": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "LeftToeEnd": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "RightLeg": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "RightShin": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "RightFoot": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "RightToeBase": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    },
+    "RightToeEnd": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+    }
+}

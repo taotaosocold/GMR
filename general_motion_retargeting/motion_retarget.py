@@ -25,10 +25,12 @@ class GeneralMotionRetargeting:
         self.xml_file = str(ROBOT_XML_DICT[tgt_robot])
         if verbose:
             print("Use robot model: ", self.xml_file)
+        # 解析xml文件
         self.model = mj.MjModel.from_xml_path(self.xml_file)
         
         # Print DoF names in order
         print("[GMR] Robot Degrees of Freedom (DoF) names and their order:")
+        # 获得机器人各个关节的名称
         self.robot_dof_names = {}
         for i in range(self.model.nv):  # 'nv' is the number of DoFs
             dof_name = mj.mj_id2name(self.model, mj.mjtObj.mjOBJ_JOINT, self.model.dof_jntid[i])
@@ -38,6 +40,7 @@ class GeneralMotionRetargeting:
             
             
         print("[GMR] Robot Body names and their IDs:")
+        # 获得机器人各个连杆的名称
         self.robot_body_names = {}
         for i in range(self.model.nbody):  # 'nbody' is the number of bodies
             body_name = mj.mj_id2name(self.model, mj.mjtObj.mjOBJ_BODY, i)
@@ -60,6 +63,7 @@ class GeneralMotionRetargeting:
             print("Use IK config: ", IK_CONFIG_DICT[src_human][tgt_robot])
         
         # compute the scale ratio based on given human height and the assumption in the IK config
+        # 真实人体身高和预测人体身高的一个缩放比例
         if actual_human_height is not None:
             ratio = actual_human_height / ik_config["human_height_assumption"]
         else:
@@ -109,7 +113,7 @@ class GeneralMotionRetargeting:
     
         self.tasks1 = []
         self.tasks2 = []
-        
+        # 根据匹配表一每一个人体和机器人的匹配连杆，做帧任务
         for frame_name, entry in self.ik_match_table1.items():
             body_name, pos_weight, rot_weight, pos_offset, rot_offset = entry
             if pos_weight != 0 or rot_weight != 0:
@@ -127,7 +131,7 @@ class GeneralMotionRetargeting:
                 )
                 self.tasks1.append(task)
                 self.task_errors1[task] = []
-        
+        # 根据匹配表二每一个人体和机器人的匹配连杆，做帧任务
         for frame_name, entry in self.ik_match_table2.items():
             body_name, pos_weight, rot_weight, pos_offset, rot_offset = entry
             if pos_weight != 0 or rot_weight != 0:
@@ -169,21 +173,25 @@ class GeneralMotionRetargeting:
                 pos, rot = human_data[body_name]
                 task.set_target(mink.SE3.from_rotation_and_translation(mink.SO3(rot), pos))
             
-            
+    # 基于微分逆动力学的迭代求解器
     def retarget(self, human_data, offset_to_ground=False):
         # Update the task targets
+        # 将当前帧的人体全局位姿（经缩放/坐标系转换/偏移处理）赋给 IK 任务对象，作为本帧的跟踪目标。
         self.update_targets(human_data, offset_to_ground)
-
+        # 若启用第一套任务权重，进入迭代优化循环。
         if self.use_ik_match_table1:
             # Solve the IK problem
             curr_error = self.error1()
             dt = self.configuration.model.opt.timestep
+            # 求解当前姿态下的最优关节速度，使任务误差最小化（通常底层是带关节限位的 QP 或阻尼最小二乘）。
             vel1 = mink.solve_ik(
                 self.configuration, self.tasks1, dt, self.solver, self.damping, self.ik_limits
             )
+            # 将速度乘以微小时间步 dt，更新机器人当前的关节位置（q = q + vel * dt）。
             self.configuration.integrate_inplace(vel1, dt)
             next_error = self.error1()
             num_iter = 0
+            # 若单次迭代带来的误差下降幅度 >0.001，说明还有优化空间，继续循环；否则提前退出。
             while curr_error - next_error > 0.001 and num_iter < self.max_iter:
                 curr_error = next_error
                 dt = self.configuration.model.opt.timestep
