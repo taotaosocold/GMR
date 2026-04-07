@@ -109,6 +109,7 @@ class GeneralMotionRetargeting:
         self.ground_offset = 0.0
 
     def setup_retarget_configuration(self):
+        # 这里配置configuration导入xml模型文件
         self.configuration = mink.Configuration(self.model)
     
         self.tasks1 = []
@@ -165,9 +166,13 @@ class GeneralMotionRetargeting:
         self.scaled_human_data = human_data
 
         if self.use_ik_match_table1:
+            # 这里body_name是人体的键
             for body_name in self.human_body_to_task1.keys():
                 task = self.human_body_to_task1[body_name]
+                # 获得对应人体对应节点的全局位置和全局朝向
                 pos, rot = human_data[body_name]
+                # 这里所设置任务目标，传递的rot和pos是我们所期望的值
+                # 后续 IK 求解器会尝试让机器人对应的框架移动到该位姿
                 task.set_target(mink.SE3.from_rotation_and_translation(mink.SO3(rot), pos))
         
         if self.use_ik_match_table2:
@@ -191,8 +196,10 @@ class GeneralMotionRetargeting:
             vel1 = mink.solve_ik(
                 self.configuration, self.tasks1, dt, self.solver, self.damping, self.ik_limits
             )
-            # 将速度乘以微小时间步 dt，更新机器人当前的关节位置（q = q + vel * dt）。
+            # 将速度乘以微小时间步 dt
+            # 这一步执行后就会更新mujoco中机器人的qpos值
             self.configuration.integrate_inplace(vel1, dt)
+            # 更新了机器人的关节值后就会可以计算出机器人每个节点的全局坐标位置了，就可以计算出我们期望的全局坐标位置和机器人当前的全局坐标位置之间的误差了
             next_error = self.error1()
             num_iter = 0
             # 若单次迭代带来的误差下降幅度 >0.001，说明还有优化空间，继续循环；否则提前退出。
