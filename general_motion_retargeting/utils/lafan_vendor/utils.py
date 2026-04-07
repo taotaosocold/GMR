@@ -100,6 +100,7 @@ def quat_fk(lrot, lpos, parents):
         gr.append(quat_mul    (gr[parents[i]], lrot[..., i:i+1, :]))
 
     res = np.concatenate(gr, axis=-2), np.concatenate(gp, axis=-2)
+    # 返回的是一个元组(gr, gp)
     return res
 
 

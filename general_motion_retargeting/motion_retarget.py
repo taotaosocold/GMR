@@ -176,7 +176,7 @@ class GeneralMotionRetargeting:
                 pos, rot = human_data[body_name]
                 task.set_target(mink.SE3.from_rotation_and_translation(mink.SO3(rot), pos))
             
-    # 基于微分逆动力学的迭代求解器
+    # 基于微分逆动力学的迭代求解器，这里human_data是某一帧
     def retarget(self, human_data, offset_to_ground=False):
         # Update the task targets
         # 将当前帧的人体全局位姿（经缩放/坐标系转换/偏移处理）赋给 IK 任务对象，作为本帧的跟踪目标。

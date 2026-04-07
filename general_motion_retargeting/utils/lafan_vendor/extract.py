@@ -132,7 +132,9 @@ def read_bvh(filename, start=None, end=None, order=None):
                 fnum = (end - start) - 1
             else:
                 fnum = int(fmatch.group(1))
+            # 这里position会变成(T, N, 3)其中T为帧数，N为节点数，3是相对于父节点的偏移量，这里每一帧都是相同的，即都是根据默认位置的值
             positions = offsets[np.newaxis].repeat(fnum, axis=0)
+            # 而rotation也变成了(T, N, 3)，但是初始化为0后面才会赋值。
             rotations = np.zeros((fnum, len(orients), 3))
             continue
 
@@ -150,8 +152,9 @@ def read_bvh(filename, start=None, end=None, order=None):
             data_block = np.array(list(map(float, dmatch)))
             N = len(parents)
             fi = i - start if start else i
-            # 假设每个关节只有三通道，将前三个值赋值给第一个关节的位置
-            # 其他剩余值为关节的旋转欧拉角（有点像给出root_pos，剩下的pose第一个为欧拉角其他全为dof_pos*dof_aixs）
+            # 假设每个关节只有三通道，将前三个值赋值给第一个关节的位置，这里就是channels最后是3
+            # 然后前三个值被当作根节点的位置，其他值一律当作朝向，实际上是相对于父节点的旋转朝向
+            # 这里赋值根节点的positon和所有节点的rotations。
             if channels == 3:
                 positions[fi, 0:1] = data_block[0:3]
                 rotations[fi, :] = data_block[3:].reshape(N, 3)
@@ -173,7 +176,7 @@ def read_bvh(filename, start=None, end=None, order=None):
     f.close()
     # 这里会把rotations换成四元数
     rotations = utils.euler_to_quat(np.radians(rotations), order=order)
-    # 处理四元数翻转问题（q和-q表示相同旋转，但插值时会出维妮塔）
+    # 处理四元数翻转问题（q和-q表示相同旋转，但插值时会出问题）
     rotations = utils.remove_quat_discontinuities(rotations)
 
     return Anim(rotations, positions, offsets, parents, names)
