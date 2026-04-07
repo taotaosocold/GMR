@@ -81,7 +81,13 @@ if __name__ == "__main__":
 
     
     # Load SMPLX trajectory
-    # 解析bvh的SMPLX文件，得到每个节点的全局位置和全局旋转以及人体的真实审稿
+    # 解析bvh的SMPLX文件，得到每个节点的全局位置和全局旋转以及人体的真实身高
+    # 其格式为
+    #     human_data = {
+    #     "body_name1": [position, orientation],
+    #     "body_name2": [position, orientation],
+    #     ...
+    #       }
     lafan1_data_frames, actual_human_height = load_bvh_file(args.bvh_file, format=args.format)
     
     
@@ -137,6 +143,7 @@ if __name__ == "__main__":
         smplx_data = lafan1_data_frames[i]
 
         # retarget
+        # 每次传入一帧人体原始的全局位置和全局朝向，得到机器人的关节转角
         qpos = retargeter.retarget(smplx_data)
         
 

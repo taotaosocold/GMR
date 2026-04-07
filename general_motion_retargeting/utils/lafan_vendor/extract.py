@@ -144,7 +144,7 @@ def read_bvh(filename, start=None, end=None, order=None):
         if (start and end) and (i < start or i >= end - 1):
             i += 1
             continue
-
+        # 解析MOTION数据每一行的数据
         dmatch = line.strip().split(' ')
         if dmatch:
             data_block = np.array(list(map(float, dmatch)))

@@ -153,8 +153,11 @@ class GeneralMotionRetargeting:
   
     def update_targets(self, human_data, offset_to_ground=False):
         # scale human data in local frame
+        # 转化为numpy格式
         human_data = self.to_numpy(human_data)
+        # 根据人体缩放表（human_scale_table）对每个身体部位的位置进行局部缩放（相对于根关节），从而将不同身高/肢体长度的人体数据统一到机器人模型期望的比例。
         human_data = self.scale_human_data(human_data, self.human_root_name, self.human_scale_table)
+        # 应用位置偏移和旋转偏移（来自 IK 配置文件中每个部位对应的 pos_offset 和 rot_offset），将人体局部坐标系下的偏移量转换到全局坐标系并叠加。
         human_data = self.offset_human_data(human_data, self.pos_offsets1, self.rot_offsets1)
         human_data = self.apply_ground_offset(human_data)
         if offset_to_ground:
@@ -177,6 +180,7 @@ class GeneralMotionRetargeting:
     def retarget(self, human_data, offset_to_ground=False):
         # Update the task targets
         # 将当前帧的人体全局位姿（经缩放/坐标系转换/偏移处理）赋给 IK 任务对象，作为本帧的跟踪目标。
+        # 这里offse_to_ground是否在预处理的最后一步自动将整个人体沿z轴向上平移，使得人体最低的脚步刚好位于地面上。
         self.update_targets(human_data, offset_to_ground)
         # 若启用第一套任务权重，进入迭代优化循环。
         if self.use_ik_match_table1:
