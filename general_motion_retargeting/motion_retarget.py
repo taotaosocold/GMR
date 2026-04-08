@@ -262,9 +262,11 @@ class GeneralMotionRetargeting:
     def scale_human_data(self, human_data, human_root_name, human_scale_table):
         
         human_data_local = {}
+        # 首先获得人体的根位置和根朝向
         root_pos, root_quat = human_data[human_root_name]
         
         # scale root
+        # 根位置先乘上一个根对应的scale
         scaled_root_pos = human_scale_table[human_root_name] * root_pos
         
         # scale other body parts in local frame
@@ -275,29 +277,34 @@ class GeneralMotionRetargeting:
                 continue
             else:
                 # transform to local frame (only position)
+                # 其他的点都是减去根位置然后乘上对应的scale
                 human_data_local[body_name] = (human_data[body_name][0] - root_pos) * human_scale_table[body_name]
             
         # transform the human data back to the global frame
+        # 再将局部坐标加回缩放后的根关节位置，恢复全局坐标
         human_data_global = {human_root_name: (scaled_root_pos, root_quat)}
         for body_name in human_data_local.keys():
             human_data_global[body_name] = (human_data_local[body_name] + scaled_root_pos, human_data[body_name][1])
 
         return human_data_global
-    
+    # 在缩放后执行偏移
     def offset_human_data(self, human_data, pos_offsets, rot_offsets):
         """the pos offsets are applied in the local frame"""
         offset_human_data = {}
         for body_name in human_data.keys():
             pos, quat = human_data[body_name]
+            # 初始化输出字典中该部位的条目，先填入原始的 pos 和 quat。后续代码将逐步修改这两个值。
             offset_human_data[body_name] = [pos, quat]
             # apply rotation offset first
+            # 先应用旋转偏移：R_human * rot_offset → 得到机器人目标框架的朝向
             updated_quat = (R.from_quat(quat, scalar_first=True) * rot_offsets[body_name]).as_quat(scalar_first=True)
             offset_human_data[body_name][1] = updated_quat
-            
+            # 这里pose_offsets是根据根坐标的局部偏移向量
             local_offset = pos_offsets[body_name]
             # compute the global position offset using the updated rotation
+            # 换成基于世界坐标系的全局偏移向量
             global_pos_offset = R.from_quat(updated_quat, scalar_first=True).apply(local_offset)
-            
+            # 当前的全局位置+全局偏移位置就是最终的位置
             offset_human_data[body_name][0] = pos + global_pos_offset
            
         return offset_human_data
