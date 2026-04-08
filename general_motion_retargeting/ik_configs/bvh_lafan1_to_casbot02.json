@@ -16,23 +16,23 @@
         "LeftFootMod":  1.28,
         "RightFootMod": 1.28,
 
-        "LeftArm":      0.6,
-        "RightArm":     0.6,
-        "LeftForeArm":  0.6,
-        "RightForeArm": 0.6,
-        "LeftHand":     0.6,
-        "RightHand":    0.6
+        "LeftArm":      0.8,
+        "RightArm":     0.8,
+        "LeftForeArm":  0.8,
+        "RightForeArm": 0.8,
+        "LeftHand":     0.8,
+        "RightHand":    0.8
     },
 
     "ik_match_table1": {
-        "waist_yaw_link": [
+        "base_link": [
             "Hips",
             100,
             10,
             [0.0, 0.0, 0.0],
             [0.5, 0.5, 0.5, 0.5]
         ],
-        "torso_link": [
+        "waist_yaw_link": [
             "Spine2",
             0,
             100,
@@ -126,14 +126,14 @@
     },
 
     "ik_match_table2": {
-        "waist_yaw_link": [
+        "base_link": [
             "Hips",
             100,
             5,
             [0.0, 0.0, 0.0],
             [0.5, 0.5, 0.5, 0.5]
         ],
-        "torso_link": [
+        "waist_yaw_link": [
             "Spine2",
             0,
             10,

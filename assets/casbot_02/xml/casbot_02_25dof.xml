@@ -117,10 +117,6 @@
         <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.79216 0.81961 0.93333 1" mesh="waist_yaw_link"/>
         <geom type="mesh" rgba="0.79216 0.81961 0.93333 1" mesh="waist_yaw_link"/>
 
-        <body name="torso_link" pos="0 0 0.2">
-          <inertial pos="0 0 0" mass="0.001" diaginertia="1e-6 1e-6 1e-6"/>
-        </body>
-
         <body name="head_yaw_link" pos="0 0 0.36225">
           <inertial pos="-0.00045035 0.0020279 0.0438295" quat="0.626226 0.729975 -0.211203 0.174273" mass="0.537443" diaginertia="0.000398769 0.000371863 0.000327748"/>
           <joint name="head_yaw_joint" pos="0 0 0" axis="0 0 1" range="-1.5708 1.5708" actuatorfrcrange="-36 36"/>
