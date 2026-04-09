@@ -161,6 +161,7 @@ class GeneralMotionRetargeting:
         # 应用位置偏移和旋转偏移（来自 IK 配置文件中每个部位对应的 pos_offset 和 rot_offset），将人体局部坐标系下的偏移量转换到全局坐标系并叠加。
         human_data = self.offset_human_data(human_data, self.pos_offsets1, self.rot_offsets1)
         human_data = self.apply_ground_offset(human_data)
+        # 自动计算人体最低点（如脚底）距离地面的高度，并将整个人体沿 Z 轴向上平移，使脚底刚好贴地（避免机器人 IK 求解时出现悬空或穿地）。
         if offset_to_ground:
             human_data = self.offset_human_data_to_ground(human_data)
         self.scaled_human_data = human_data
@@ -186,18 +187,22 @@ class GeneralMotionRetargeting:
         # Update the task targets
         # 将当前帧的人体全局位姿（经缩放/坐标系转换/偏移处理）赋给 IK 任务对象，作为本帧的跟踪目标。
         # 这里offse_to_ground是否在预处理的最后一步自动将整个人体沿z轴向上平移，使得人体最低的脚步刚好位于地面上。
+        # 并为每一个节点设置我们要到达的位置和朝向的任务
         self.update_targets(human_data, offset_to_ground)
         # 若启用第一套任务权重，进入迭代优化循环。
         if self.use_ik_match_table1:
             # Solve the IK problem
             curr_error = self.error1()
+            # 这个timestep值通常是我们手动设置的或者xml中获得的
             dt = self.configuration.model.opt.timestep
-            # 求解当前姿态下的最优关节速度，使任务误差最小化（通常底层是带关节限位的 QP 或阻尼最小二乘）。
+            # 逆运动学求解器，输入当前姿态、任务目标、时间步长等，输出最优关节速度向量 vel，使任务误差下降最快（内部通常使用带阻尼的最小二乘或 QP 求解，并考虑关节限位）
+            # v=K_p(p_target-p_current)去计算出速度，然后根据雅可比矩阵计算出关节转角速度即vel1=\dot(q)
             vel1 = mink.solve_ik(
                 self.configuration, self.tasks1, dt, self.solver, self.damping, self.ik_limits
             )
             # 将速度乘以微小时间步 dt
             # 这一步执行后就会更新mujoco中机器人的qpos值
+            # q_new = q_current = \dot(q)*dt
             self.configuration.integrate_inplace(vel1, dt)
             # 更新了机器人的关节值后就会可以计算出机器人每个节点的全局坐标位置了，就可以计算出我们期望的全局坐标位置和机器人当前的全局坐标位置之间的误差了
             next_error = self.error1()
