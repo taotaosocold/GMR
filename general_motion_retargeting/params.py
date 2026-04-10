@@ -23,7 +23,7 @@ ROBOT_XML_DICT = {
     "tienkung": ASSET_ROOT / "tienkung" / "mjcf" / "tienkung.xml",
     "pal_talos": ASSET_ROOT / "pal_talos" / "talos.xml",
     "fourier_gr3": ASSET_ROOT / "fourier_gr3v2_1_1" / "mjcf" / "gr3v2_1_1_dummy_hand.xml",
-    "casbot_02": ASSET_ROOT / "casbot_02" / "xml" / "casbot_02_25dof.xml",
+    "casbot_02": ASSET_ROOT / "casbot_02" / "casbot02_25dof_head_at_last.xml",
 }
 
 IK_CONFIG_DICT = {
