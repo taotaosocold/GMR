@@ -23,7 +23,7 @@ import psutil
 import tracemalloc
 
 
-def check_memory(threshold_gb=30):  # adjust based on your available memory
+def check_memory(threshold_gb=8):  # adjust based on your available memory
     mem = psutil.virtual_memory()
     used_memory_gb = (mem.total - mem.available) / (1024 ** 3)
     available_memory_gb = mem.available / (1024 ** 3)
