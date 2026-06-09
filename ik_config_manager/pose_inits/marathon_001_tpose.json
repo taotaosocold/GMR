@@ -1,0 +1,34 @@
+{
+  "root_pos": [
+    0.0,
+    0.0,
+    0.845
+  ],
+  "root_rot": [
+    0.70710678,
+    0.0,
+    0.0,
+    -0.70710678
+  ],
+  "degrees": true,
+  "joints": {
+    "right_shoulder_pitch_joint": 0.0,
+    "right_shoulder_roll_joint": -90.0,
+    "right_elbow_pitch_joint": 0.0,
+    "left_shoulder_pitch_joint": 0.0,
+    "left_shoulder_roll_joint": 90.0,
+    "left_elbow_pitch_joint": 0.0,
+    "right_leg_pelvic_pitch_joint": 0.0,
+    "right_leg_pelvic_roll_joint": 0.0,
+    "right_leg_pelvic_yaw_joint": 0.0,
+    "right_leg_knee_pitch_joint": 0.0,
+    "right_leg_ankle_pitch_joint": 0.0,
+    "right_leg_ankle_roll_joint": 0.0,
+    "left_leg_pelvic_pitch_joint": 0.0,
+    "left_leg_pelvic_roll_joint": 0.0,
+    "left_leg_pelvic_yaw_joint": 0.0,
+    "left_leg_knee_pitch_joint": 0.0,
+    "left_leg_ankle_pitch_joint": 0.0,
+    "left_leg_ankle_roll_joint": 0.0
+  }
+}

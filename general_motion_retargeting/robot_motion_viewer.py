@@ -79,6 +79,9 @@ class RobotMotionViewer:
             )      
 
         self.viewer.opt.flags[mj.mjtVisFlag.mjVIS_TRANSPARENT] = transparent_robot
+
+        # self.viewer.opt.frame = mj.mjtFrame.mjFRAME_BODY
+        # self.viewer.opt.flags[mj.mjtVisFlag.mjVIS_JOINT] = True
         
         if self.record_video:
             assert video_path is not None, "Please provide video path for recording"

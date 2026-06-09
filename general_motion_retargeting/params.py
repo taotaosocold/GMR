@@ -49,7 +49,7 @@ IK_CONFIG_DICT = {
         "tienkung": IK_CONFIG_ROOT / "smplx_to_tienkung.json",
         "fourier_gr3": IK_CONFIG_ROOT / "smplx_to_gr3.json",
         "casbot_02": IK_CONFIG_ROOT / "smplx_to_casbot02.json",
-        "casbot_skeleton": IK_CONFIG_ROOT / "smplx_to_casbot_skeleton.json",
+        "casbot_skeleton": IK_CONFIG_ROOT / "smplx_to_casbot_skeleton2.json",
         "marathon_001": IK_CONFIG_ROOT / "smplx_to_marathon_001.json",
     },
     "bvh_lafan1":{
@@ -62,6 +62,7 @@ IK_CONFIG_DICT = {
         "pal_talos": IK_CONFIG_ROOT / "bvh_to_talos.json",
         "casbot_02": IK_CONFIG_ROOT / "bvh_lafan1_to_casbot02.json",
         "casbot_skeleton": IK_CONFIG_ROOT / "bvh_lafan1_to_casbot_skeleton.json",
+        "marathon_001": IK_CONFIG_ROOT / "bvh_lafan1_to_marathon_001.json",
     },
     "bvh_nokov":{
         "unitree_g1": IK_CONFIG_ROOT / "bvh_nokov_to_g1.json",
